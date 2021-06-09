@@ -1,15 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="c1">
+    <input type="text" id="input">
+    <button @click="click">Submit</button>
+    <Card :title="title"> </Card>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Card from './components/Card.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Card
+  },
+  data() {
+    return {
+      title: 'Miras'
+    }
+  },
+  methods: {
+    click() {
+      this.title = document.getElementById("input").value
+    }
   }
 }
 </script>

@@ -19,17 +19,13 @@ export default {
   data() {
     return {
       nextId: 0,
-      newCardText : '',
       data: '',
       cards: []
     }
   },
   methods: {
     addCard() {
-      this.newCardText = this.data;
-      this.cards.push({ id: this.nextId++, title: this.newCardText });
-      this.newCardText = '';
-      console.log(this.cards);
+      this.cards.push({ id: this.nextId++, title: this.data });
     }
   }
 }

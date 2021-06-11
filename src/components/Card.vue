@@ -1,5 +1,7 @@
 <template>
-    <h1> {{ title }}</h1>
+    <li class="test">
+        <h1> {{ title }}</h1>
+    </li>
 </template>
 
 <script>
@@ -13,5 +15,9 @@ export default {
 <style scoped>
     h1 {
         color: red;
+    }
+    .test {
+        border: 4px, double, black;
+        padding: 20px;
     }
 </style>

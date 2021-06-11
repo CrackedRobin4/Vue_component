@@ -1,8 +1,10 @@
 <template>
-  <div id="c1">
-    <input type="text" id="input">
-    <button @click="click">Submit</button>
-    <Card :title="title"> </Card>
+  <div>
+    <input type="text" v-model="data">
+    <button @click="addCard">Submit</button>
+    <ul>
+      <Card v-for="card in cards" :key="card.id" :title="card.title"></Card>
+    </ul>
   </div>
 </template>
 
@@ -16,12 +18,18 @@ export default {
   },
   data() {
     return {
-      title: 'Miras'
+      nextId: 0,
+      newCardText : '',
+      data: '',
+      cards: []
     }
   },
   methods: {
-    click() {
-      this.title = document.getElementById("input").value
+    addCard() {
+      this.newCardText = this.data;
+      this.cards.push({ id: this.nextId++, title: this.newCardText });
+      this.newCardText = '';
+      console.log(this.cards);
     }
   }
 }
@@ -35,5 +43,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+li {
+  list-style-type: none;
+  border: 2px, double, black;
+  padding: 5px;
 }
 </style>
